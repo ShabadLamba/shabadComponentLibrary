@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="component" [ngStyle]="{
+      'border-bottom-right-radius': !isDropDownClicked
+        ? '0.2px solid #dfdfdf'
+        : '0'
+    }">
+        <div class="subcontainer1">
+            <div class="arrow" (click)="toggle()">
+                <i class="fas fa-angle-right" [ngClass]="!isDropDownClicked ? 'arrow-icon' : 'arrow-icon-bottom'"></i>
+            </div>
+        </div>
+
+        <div class="subcontainer2">
+            <div *ngIf="!isDropDownClicked" class="options">
+                {{ defaultTextForDropDown | titlecase }}
+            </div>
+            <ng-container *ngIf="isDropDownClicked">
+                <div class="subcontainer2-div" [@listAnimation]="listOfOptions.length" (@listAnimation.start)="logAnimation($event)" (@listAnimation.done)="logAnimation($event)">
+                    <div *ngFor="let options of listOfOptions" class="options">
+                        {{ options | titlecase }}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
