@@ -1,14 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
 ::ng-deep .tooltip {
     position: absolute;
-    background: #646464;
+    background: #312c51;
     border-radius: 4px;
     padding: 6px 12px;
-    font-family: arial;
+    font-family: "Times New Roman", Times, serif;
     font-size: 12px;
-    text-shadow: 0px 1px 1px #000;
-    color: #ffc64a;
+    // text-shadow: 0px 1px 1px #000;
+    color: #f0c38e;
+    transform: scale(0);
+    transition: transform 0.3s ease-in;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 // .tooltip:before {
@@ -28,8 +42,37 @@
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #646464;
+    border-bottom: 10px solid #312c51;
     position: absolute;
     top: -5px;
     left: 2px;
 }
+
+::ng-deep .tooltip2 {
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12px;
+    // text-shadow: 0px 1px 1px #000;
+    color: #333;
+    // transform: translateY(0);
+    transition: transform 0.3s ease-in;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0.1px 1px 10px -6px #333;
+}
+
+// ::ng-deep .tooltip2:after {
+//     content: " ";
+//     width: 0;
+//     height: 0;
+//     border-left: 10px solid transparent;
+//     border-right: 10px solid transparent;
+//     border-bottom: 10px solid bisque;
+//     position: absolute;
+//     top: -5px;
+//     left: 2px;
+// }

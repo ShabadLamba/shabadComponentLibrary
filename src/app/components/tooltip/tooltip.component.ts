@@ -15,29 +15,112 @@ export class TooltipComponent implements OnInit {
     });
   }
 
-  getButton() {
-    const node = document.querySelector('.container').querySelector('.btn');
+  getButton1() {
+    const node = document.querySelector('.container').querySelector('#btn');
     console.log(node);
-    this.insertTooltip(node, 'this is tooltip text');
+    this.insertTooltip(node, 'This is Tooltip Text', 'tooltip1', 'tooltip');
   }
 
-  insertTooltip(node, title) {
-    const tooltipWrap = document.createElement('div'); // creates div
-    tooltipWrap.className = 'tooltip'; // adds class
-    tooltipWrap.appendChild(document.createTextNode(title)); // add the text node to the newly created div.
-
-    node.parentNode.insertBefore(tooltipWrap, node); // adds tt before elem
-    const padding = 5;
-    const linkProps = this.rect;
-    const tooltipProps = tooltipWrap.getBoundingClientRect();
-    const topPos = linkProps.bottom + padding;
-    tooltipWrap.setAttribute(
-      'style',
-      'top:' + topPos + 'px;' + 'left:' + linkProps.left + 'px;'
+  getButton2() {
+    const node2 = document.querySelector('.container').querySelector('#btn2');
+    console.log(node2);
+    this.insertTooltip2(
+      node2,
+      'This is Tooltip Text 2',
+      'tooltip2',
+      'tooltip2',
+      30
     );
   }
 
-  cancelTip() {
-    document.querySelector('.tooltip').remove();
+  insertTooltip(node, title, id, className) {
+    const tooltipWrap = document.createElement('div'); // creates div
+    tooltipWrap.className = className; // adds class
+    tooltipWrap.id = id;
+    tooltipWrap.appendChild(document.createTextNode(title)); // add the text node to the newly created div.
+
+    node.parentNode.insertBefore(tooltipWrap, node); // adds tt before elem
+    const padding = 2;
+    const linkProps = this.rect;
+    const nodePos = node.getBoundingClientRect();
+    console.log(nodePos);
+    const leftPos = nodePos.x;
+    const topPos =
+      nodePos.y +
+      nodePos.height +
+      parseFloat(
+        window.getComputedStyle(node, null).getPropertyValue('padding-top')
+      ) +
+      parseFloat(
+        window
+          .getComputedStyle(tooltipWrap, null)
+          .getPropertyValue('padding-top')
+      ) /
+        2 +
+      padding;
+
+    // 1;
+    tooltipWrap.setAttribute(
+      'style',
+      'top:' +
+        topPos +
+        'px;' +
+        'left:' +
+        leftPos +
+        'px;' +
+        'transform: Scale(1)'
+    );
+  }
+
+  insertTooltip2(node, title, id, className, translatePostion) {
+    const tooltipWrap = document.createElement('div'); // creates div
+    tooltipWrap.className = className; // adds class
+    tooltipWrap.id = id;
+    tooltipWrap.appendChild(document.createTextNode(title)); // add the text node to the newly created div.
+
+    node.parentNode.insertBefore(tooltipWrap, node); // adds tt before elem
+    const padding = 4;
+    const linkProps = this.rect;
+    const nodePos = node.getBoundingClientRect();
+    console.log(nodePos);
+    const leftPos = nodePos.x - padding;
+    // parseFloat(
+    //   window
+    //     .getComputedStyle(tooltipWrap, null)
+    //     .getPropertyValue('padding-right')
+    // ) /
+    //   2;
+    const topPos =
+      nodePos.y +
+      nodePos.height +
+      parseFloat(
+        window.getComputedStyle(node, null).getPropertyValue('padding-top')
+      ) +
+      parseFloat(
+        window
+          .getComputedStyle(tooltipWrap, null)
+          .getPropertyValue('padding-top')
+      ) /
+        2 -
+      translatePostion +
+      padding;
+
+    // 1;
+    tooltipWrap.setAttribute(
+      'style',
+      'top:' +
+        topPos +
+        'px;' +
+        'left:' +
+        leftPos +
+        'px;' +
+        'transform: translateY(' +
+        translatePostion +
+        'px)'
+    );
+  }
+
+  cancelTip(id) {
+    document.querySelector(id).remove();
   }
 }

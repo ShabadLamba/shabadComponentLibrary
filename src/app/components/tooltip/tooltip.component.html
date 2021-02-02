@@ -1,5 +1,9 @@
 <div class="container">
-    <button class="btn" (mouseover)="getButton()" (mouseout)="cancelTip()">
-    Hello world!
+    <button class="btn" (mouseover)="getButton1()" (mouseout)="cancelTip('#tooltip1')" id="btn" mat-raised-button>
+    Tool Tip style 1
+  </button>
+
+    <button class="btn" (mouseover)="getButton2()" (mouseout)="cancelTip('#tooltip2')" id="btn2" mat-raised-button color="primary">
+    Tool Tip style 2
   </button>
 </div>
