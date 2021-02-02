@@ -1,28 +1,42 @@
 .container {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    background: linear-gradient(90deg, #164a41 10%, #4d774e 50%) !important;
     // width: 100vw;
-    background-color: #eae7dc;
+    // background-color: #eae7dc;
     //  #654062;
     color: #f0c38e;
     user-select: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     // padding: 50px;
 }
 
 .header {
-    background-color: #d8c3a5;
-    width: 100vw;
-    height: 15vh;
+    // background-color: #d8c3a5;
+    // width: 100vw;
+    height: 8vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 80px;
-    box-shadow: 0px 1px 2px 2px #bebdba; //#9ecdaa
+    gap: 20px;
+    padding-left: 90px;
+    padding-top: 10px;
+    // padding-left: 80px;
+    // box-shadow: 0px 1px 2px 2px #bebdba; //#9ecdaa
     // transform: translateY(-100px);
     animation: header 1.5s ease 0s alternate 1 none running;
+    position: absolute;
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+    .menu {
+        display: flex;
+        gap: 10px;
+        padding-left: 200px;
+    }
 }
 
 @keyframes header {
@@ -34,12 +48,41 @@
     }
 }
 
-.title {
+.header-text {
     color: #e8e8e8;
-    font-family: "Franklin Gothic ", "Arial Narrow", Arial, sans-serif;
-    font-size: 48px;
-    font-weight: 900;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    // padding-left: 100px;
 }
+
+.main {
+    height: 100vh;
+    width: max-content;
+    padding-top: 30vh;
+    // background: linear-gradient(90deg, #164a41 10%, #4d774e 50%) !important;
+    padding-left: 100px;
+    padding-bottom: 28vh;
+    color: #e8e8e8;
+    letter-spacing: 1px;
+    .main-heading {
+        font-family: "Coda Caption", sans-serif;
+        font-size: 92px;
+        display: flex;
+        flex-direction: column;
+        // height: 48px;
+        gap: 64px;
+    }
+    .main-subheading {
+        display: block;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        padding-top: 90px;
+    }
+}
+
+.title {}
 
 .grid {
     padding: 70px;
@@ -53,20 +96,20 @@
     height: 25vh;
     width: 12vw;
     border-radius: 20px;
-    background-color: #e85a4f;
+    background-color: #f1b24a;
     color: #e8e8e8;
     padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0.3px 0.3px 5px 0.1px #bbbfca;
+    // box-shadow: 0.3px 0.3px 5px 0.1px #bbbfca;
     font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
     font-size: 28px;
     font-weight: 100;
     letter-spacing: 0.1px;
     cursor: pointer;
     &:hover {
-        background-color: #e98074;
+        background-color: #9dc88d;
         //  #f0c38e;
     }
 }
