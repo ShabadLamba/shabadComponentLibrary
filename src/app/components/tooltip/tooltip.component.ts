@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-tooltip',
@@ -7,6 +7,8 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 })
 export class TooltipComponent implements OnInit {
   rect: any;
+  @Input() toolTipType = 1;
+
   constructor(private el: ElementRef, private render: Renderer2) {}
   ngOnInit() {
     this.render.listen('window', 'load', () => {
