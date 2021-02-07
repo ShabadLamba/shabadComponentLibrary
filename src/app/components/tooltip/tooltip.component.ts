@@ -45,10 +45,13 @@ export class TooltipComponent implements OnInit {
     const padding = 2;
     const linkProps = this.rect;
     const nodePos = node.getBoundingClientRect();
+    const nodePosOffSetTop = node.offsetTop;
+    const nodePosOffSetLeft = node.offsetLeft;
     console.log(nodePos);
-    const leftPos = nodePos.x;
+    console.log(nodePosOffSetTop);
+    const leftPos = nodePosOffSetLeft;
     const topPos =
-      nodePos.y +
+      nodePosOffSetTop +
       nodePos.height +
       parseFloat(
         window.getComputedStyle(node, null).getPropertyValue('padding-top')
@@ -84,8 +87,10 @@ export class TooltipComponent implements OnInit {
     const padding = 4;
     const linkProps = this.rect;
     const nodePos = node.getBoundingClientRect();
+    const nodePosOffSetTop = node.offsetTop;
+    const nodePosOffSetLeft = node.offsetLeft;
     console.log(nodePos);
-    const leftPos = nodePos.x - padding;
+    const leftPos = nodePosOffSetLeft - padding;
     // parseFloat(
     //   window
     //     .getComputedStyle(tooltipWrap, null)
@@ -93,7 +98,7 @@ export class TooltipComponent implements OnInit {
     // ) /
     //   2;
     const topPos =
-      nodePos.y +
+      nodePosOffSetTop +
       nodePos.height +
       parseFloat(
         window.getComputedStyle(node, null).getPropertyValue('padding-top')
